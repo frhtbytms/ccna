@@ -1,0 +1,223 @@
+
+Current configuration : 711 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname r1
+!
+!
+!
+enable password ssna
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524X577-
+!
+!
+!
+!
+!
+!
+!
+!
+
+r1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+r1(config)#service password encrypton
+                            ^
+% Invalid input detected at '^' marker.
+	
+r1(config)#servicec password encryption
+                  ^
+% Invalid input detected at '^' marker.
+	
+r1(config)#service password-encryption
+r1(config)#show run
+            ^
+% Invalid input detected at '^' marker.
+	
+r1(config)#exit
+r1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+r1#sh run
+Building configuration...
+
+Current configuration : 716 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname r1
+!
+!
+!
+enable password 7 08325F4008
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+
+r1#conf
+Configuring from terminal, memory, or network [terminal]? t
+Enter configuration commands, one per line.  End with CNTL/Z.
+r1(config)#do sh run
+Building configuration...
+
+Current configuration : 716 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname r1
+!
+!
+!
+enable password 7 08325F4008
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+
+r1(config)#eneable secret Cisco
+             ^
+% Invalid input detected at '^' marker.
+	
+r1(config)#enable secret Cisco
+r1(config)#exit
+r1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+r1#exit
+
+
+
+
+
+
+
+
+
+r1 con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+r1>en
+Password: 
+Password: 
+Password: 
+% Bad secrets
+
+r1>en
+Password: 
+r1#sh run
+Building configuration...
+
+Current configuration : 763 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname r1
+!
+!
+!
+enable secret 5 $1$mERr$YlCkLMcTYWwkF1Ccndtll.
+enable password 7 08325F4008
+!
+!
+!
+!
+!
+!
+ip cef
+
+r1#wr
+Building configuration...
+[OK]
+r1#write memory
+Building configuration...
+[OK]
+r1#copy runnig-config startup-config
+                      ^
+% Invalid input detected at '^' marker.
+	
+r1#copy runnig-config startup-config
+                      ^
+% Invalid input detected at '^' marker.
+	
+r1#copy runnig-config startup-confign
+                      ^
+% Invalid input detected at '^' marker.
+	
+r1#copy running-config startup-config
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+r1#sh startup-config
+Using 763 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname r1
+!
+!
+!
+enable secret 5 $1$mERr$YlCkLMcTYWwkF1Ccndtll.
+enable password 7 08325F4008
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+ --More-- 
