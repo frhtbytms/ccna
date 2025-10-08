@@ -1,0 +1,58 @@
+Elbette ferhat! İşte Cisco Router R1 yapılandırma oturumunun Türkçe olarak hazırlanmış, açıklamalı ve paylaşmaya hazır bir `README.md` dosyası:
+
+---
+
+# 📘 Cisco Router R1 Yapılandırması – Açıklamalı CLI Oturumu
+
+## Genel Bakış
+
+Bu proje, Cisco Packet Tracer'da Router R1 için tam açıklamalı bir Cisco IOS CLI oturumunu içerir. Temel kurulum, parola güvenliği ve yapılandırma kaydetme adımlarını detaylı yorumlarla açıklar. Öğrenciler, eğitmenler ve ağ mühendisleri için anlaşılır bir referans sunar.
+
+## İçerik
+
+- ✅ Hostname (cihaz adı) ayarı  
+- 🔐 Enable password ve secret yapılandırması  
+- 🔒 Parola şifreleme etkinleştirme  
+- 💾 Çalışan yapılandırmanın başlangıç yapılandırmasına kaydedilmesi  
+- ❌ Yaygın komut yazım hataları ve düzeltmeleri  
+- 📄 Yapılandırma dosyalarının görüntülenmesi ve doğrulanması
+
+## Amaç
+
+Bu açıklamalı oturum şunlar için tasarlanmıştır:
+
+- Cisco IOS komutlarını öğrenen öğrenciler  
+- Laboratuvar anlatımı hazırlayan eğitmenler  
+- Router kurulumunu belgeleyen ağ mühendisleri  
+- Packet Tracer projelerini paylaşmak isteyen herkes
+
+## Nasıl Kullanılır
+
+1. Cisco Packet Tracer’ı açın ve Router R1’i başlatın.  
+2. CLI ekranına girin ve dosyadaki komutları sırayla uygulayın.  
+3. Her adımın yanındaki yorumları okuyarak ne yaptığınızı anlayın.  
+4. Yapılandırmayı `write memory` veya `copy running-config startup-config` komutlarıyla kaydedin.
+
+## Örnek Komutlar
+
+```bash
+r1(config)#service password-encryption    ! Tüm parolaları şifreler
+r1(config)#enable secret Cisco            ! Şifrelenmiş enable secret ayarlanır
+r1#copy running-config startup-config     ! Yapılandırma kalıcı olarak kaydedilir
+```
+
+## Notlar
+
+- Yazım hataları ve komut yanlışlıkları bilinçli olarak dahil edilmiştir, böylece gerçek senaryolarda nasıl çözüm üreteceğinizi görebilirsiniz.  
+- Parolalar Cisco’nun yerleşik şifreleme yöntemleriyle korunur.  
+- Yapılandırma IOS sürüm 15.1’e dayanmaktadır.
+
+## Yazar
+
+Hazırlayan: **ferhat**  
+Konum: Somerville, MA  
+Tarih: Ekim 2025
+
+---
+
+İstersen bu dosyayı GitHub için biçimlendirebilir, PDF’ye dönüştürebilir veya bir eğitim dökümanına çevirebilirim. Başka bir şey eklemek ister misin?
