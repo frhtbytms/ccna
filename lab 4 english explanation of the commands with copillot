@@ -1,0 +1,91 @@
+! Initial configuration snapshot
+version 15.1                              ! IOS version
+no service timestamps log datetime msec   ! Disable timestamps for log messages
+no service timestamps debug datetime msec ! Disable timestamps for debug messages
+no service password-encryption            ! Passwords stored in plain text (initially)
+
+hostname r1                               ! Set router hostname
+
+enable password ssna                      ! Set unencrypted enable password
+
+ip cef                                    ! Enable Cisco Express Forwarding
+no ipv6 cef                               ! Disable IPv6 CEF
+
+license udi pid CISCO2911/K9 sn FTX1524X577-  ! Device license info
+
+! Enter global configuration mode
+r1#conf t
+
+! Incorrect attempts to enable password encryption
+r1(config)#service password encrypton     ! Typo: "encrypton"
+r1(config)#servicec password encryption   ! Typo: "servicec"
+
+! Correct command to enable password encryption
+r1(config)#service password-encryption
+
+! Incorrect use of "show" in config mode
+r1(config)#show run                       ! Use "do" prefix in config mode
+
+! Exit configuration mode
+r1(config)#exit
+
+! System confirms configuration change
+r1# %SYS-5-CONFIG_I: Configured from console by console
+
+! Show running configuration
+r1#sh run
+
+! Re-enter configuration mode
+r1#conf
+Configuring from terminal, memory, or network [terminal]? t
+
+! Use "do" to run show command inside config mode
+r1(config)#do sh run
+
+! Typo in command to set secret password
+r1(config)#eneable secret Cisco           ! Typo: "eneable"
+
+! Correct command to set encrypted secret password
+r1(config)#enable secret Cisco
+
+! Exit configuration mode
+r1(config)#exit
+
+! System confirms configuration change
+r1# %SYS-5-CONFIG_I: Configured from console by console
+
+! Exit privileged exec mode
+r1#exit
+
+! Reconnect to router
+r1>en                                     ! Enter enable mode
+Password:                                 ! Enter password (may fail)
+% Bad secrets                             ! Incorrect password
+
+r1>en                                     ! Try again
+Password:                                 ! Success
+
+! Show running configuration
+r1#sh run
+
+! Configuration now includes encrypted passwords
+enable secret 5 $1$mERr$YlCkLMcTYWwkF1Ccndtll.  ! Encrypted secret password
+enable password 7 08325F4008                   ! Encrypted enable password
+
+! Save configuration to memory
+r1#wr                                    ! Shortcut for "write memory"
+r1#write memory                          ! Save running config to startup config
+
+! Typo attempts to copy config
+r1#copy runnig-config startup-config     ! Typo: "runnig"
+r1#copy runnig-config startup-confign    ! Typo: "confign"
+
+! Correct command to copy config
+r1#copy running-config startup-config
+Destination filename [startup-config]?   ! Confirm destination
+Building configuration...                ! Save successful
+[OK]
+
+! Show saved startup configuration
+r1#sh startup-config
+Using 763 bytes                          ! Size of saved config
